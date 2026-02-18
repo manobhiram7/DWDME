@@ -1,0 +1,128 @@
+R TOOL
+
+# Given Data
+data <- c(200, 300, 400, 600, 1000)
+
+# -----------------------------
+# (a) Min-Max Normalization
+# -----------------------------
+min_max <- (data - min(data)) / (max(data) - min(data))
+
+# -----------------------------
+# (b1) Z-score using Standard Deviation
+# -----------------------------
+z_sd <- (data - mean(data)) / sd(data)
+
+# -----------------------------
+# (b2) Z-score using Mean Absolute Deviation
+# -----------------------------
+mean_abs <- mean(abs(data - mean(data)))
+z_mad <- (data - mean(data)) / mean_abs
+
+# -----------------------------
+# (c) Decimal Scaling
+# -----------------------------
+dec <- data / max(data)
+
+# -----------------------------
+# Display Results
+# -----------------------------
+min_max
+z_sd
+z_mad
+dec
+
+
+
+mobiles <- c(5,10,15,20,25)
+money <- c(50000,100000,150000,200000,250000)
+
+plot(mobiles, money,
+     main="Mobile Sales vs Money",
+     xlab="Number of Mobiles Sold",
+     ylab="Money Earned")
+
+
+
+food <- c("Veg","NonVeg","Veg","Veg","NonVeg","Veg","NonVeg")
+
+table(food)
+
+veg_count <- sum(food == "Veg")
+nonveg_count <- sum(food == "NonVeg")
+
+veg_count
+nonveg_count
+
+
+if(veg_count > nonveg_count){
+  print("Vegetarian count is greater")
+}else{
+  print("Non-Vegetarian count is greater")
+}
+
+
+pencils <- c(10, 15, 12, 18, 15, 20, 15)
+
+mean(pencils)
+
+median(pencils)
+
+mode_val <- names(sort(table(pencils), decreasing=TRUE))[1]
+mode_val
+
+
+
+
+A <- c(76,35,47,64,95,66,89,36,84)
+B <- c(51,56,84,60,59,70,63,66,50)
+
+# Mean
+mean(A)
+mean(B)
+
+# Median
+median(A)
+median(B)
+
+# Range
+range(A)
+range(B)
+
+# Boxplot
+boxplot(A, B,
+        names=c("Class A","Class B"),
+        main="Boxplot Comparison",
+        ylab="Marks")
+
+
+
+
+plot(age, bp,
+     main="Scatter Plot: Age vs BP",
+     xlab="Age",
+     ylab="Blood Pressure")
+
+barplot(bp,
+        names.arg=age,
+        main="BP vs Age",
+        xlab="Age",
+        ylab="Blood Pressure")
+
+bar and scatter plot
+
+
+
+
+
+# Data
+data <- c(5,10,11,13,15,35,50,55,72,92,204,215)
+
+# Equal Width
+cut(data, breaks=3)
+
+# Equal Frequency
+cut(data, breaks=quantile(data, probs=seq(0,1,length=4)), include.lowest=TRUE)
+
+# Clustering
+kmeans(data, centers=3)
